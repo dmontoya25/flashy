@@ -411,14 +411,14 @@ function FlashcardApp() {
             style={{marginBottom: '10px', width: '200px'}}
             value={newQuestion}
             onChange={(e) => setNewQuestion(e.target.value)}
-            placeholder="Enter question"
+            placeholder="Question"
           />
           <br />
           <input
             style={{marginBottom: '10px',width: '200px'}}
             value={newAnswer}
             onChange={(e) => setNewAnswer(e.target.value)}
-            placeholder="Enter answer"
+            placeholder="Answer"
           />
           <br></br>
           <button id="add-flashcard-button" onClick={handleAddFlashcard}>
@@ -433,7 +433,7 @@ function FlashcardApp() {
               Cancel
             </button>
           )}
-        </div>
+        </div> 
         {flashcards.length > 0 ? (
           <>
             <div className="progress-container">
