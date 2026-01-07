@@ -24,7 +24,7 @@ const styles = {
     position: 'absolute',
     left: '20px',
     top: '20px',
-    backgroundColor: '#4a90e2',
+    backgroundColor: '#DE7900',
     color: 'white',
     border: 'none',
     padding: '10px 20px',
@@ -33,9 +33,7 @@ const styles = {
     fontSize: '16px',
     zIndex: 100,
     transition: 'background-color 0.3s ease',
-    '&:hover': {
-      backgroundColor: '#357abd',
-    },
+   
   },
   sidebar: {
     position: 'absolute',
