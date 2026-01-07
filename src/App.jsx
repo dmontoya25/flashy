@@ -26,7 +26,7 @@ const styles = {
     top: '20px',
     backgroundColor: '#DE7900',
     color: 'white',
-    border: 'none',
+    border: 'black 2px 2px',
     padding: '10px 20px',
     borderRadius: '4px',
     cursor: 'pointer',
@@ -399,7 +399,7 @@ function FlashcardApp() {
           FLASHY
         </h1>
         <button id="dark-mode-toggle" onClick={toggleDarkMode}>
-          {isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+          {isDarkMode ? "Light Mode" : "Dark Mode"}
         </button>
         <button id="sign-out-btn" onClick={() => auth.signOut()}>
           Sign out
