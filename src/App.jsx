@@ -198,10 +198,18 @@ function FlashcardApp() {
 
   // Show Login or SignUp based on state
   if (!isAuthenticated) {
-    return isSignUp ? (
-      <SignUp onSignUp={handleSignUp} onSwitchToLogin={() => setIsSignUp(false)} />
-    ) : (
-      <LoginForm onLogin={handleLogin} onSwitchToSignUp={() => setIsSignUp(true)} />
+    return (
+      <div className={isDarkMode ? "app dark-mode" : "app"}>
+        {isSignUp ? (
+          <SignUp onSignUp={handleSignUp} onSwitchToLogin={() => setIsSignUp(false)} />
+        ) : (
+          <LoginForm 
+            onLogin={handleLogin} 
+            onSwitchToSignUp={() => setIsSignUp(true)}
+            isDarkMode={isDarkMode}
+          />
+        )}
+      </div>
     );
   }
 

@@ -290,7 +290,11 @@ background-color: #af1c1c;
   cursor: pointer;
 }
 #login-button:hover {
-  background-color: #177420;
+  background-color: #741717;
+}
+
+.login-submit-button:hover {
+  background-color: #357abd !important;
 }
 
 #sign-out-btn {

@@ -119,7 +119,7 @@ const styles = {
   },
 };
 
-export const LoginForm = ({onLogin}) => {
+export const LoginForm = ({onLogin, isDarkMode}) => {
   const [email, setEmail] = useState(() => {
     // Try to get saved email from localStorage on component mount
     return localStorage.getItem('rememberedEmail') || "";
@@ -204,10 +204,20 @@ export const LoginForm = ({onLogin}) => {
   
 
   return (
-    <div style={styles.container}>
-      <h2 style={styles.title}>
-        {isSignUp ? "Create Account" : "Welcome Back"}
-      </h2>
+    <div style={{ position: 'relative', minHeight: '100vh', width: '100vw' }}>
+      <div 
+        style={{
+          ...styles.container,
+          backgroundColor: isDarkMode ? 'var(--flashcard-bg-color)' : 'white',
+        }}
+        className={isDarkMode ? 'dark-mode' : ''}
+      >
+        <h2 style={{
+          ...styles.title,
+          color: isDarkMode ? 'var(--text-color)' : '#333',
+        }}>
+          {isSignUp ? "Create Account" : "Welcome Back"}
+        </h2>
       <form onSubmit={handleSubmit} style={styles.form}>
         <input
           type="email"
@@ -215,7 +225,12 @@ export const LoginForm = ({onLogin}) => {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
           required
-          style={styles.input}
+          style={{
+            ...styles.input,
+            backgroundColor: isDarkMode ? 'var(--input-bg-color)' : 'white',
+            color: isDarkMode ? 'var(--input-text-color)' : '#000',
+            borderColor: isDarkMode ? '#57728e' : '#ddd',
+          }}
         />
         <div style={styles.passwordContainer}>
           <input
@@ -224,7 +239,12 @@ export const LoginForm = ({onLogin}) => {
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
             required
-            style={styles.input}
+            style={{
+              ...styles.input,
+              backgroundColor: isDarkMode ? 'var(--input-bg-color)' : 'white',
+              color: isDarkMode ? 'var(--input-text-color)' : '#000',
+              borderColor: isDarkMode ? '#57728e' : '#ddd',
+            }}
           />
           <button
             type="button"
@@ -243,7 +263,10 @@ export const LoginForm = ({onLogin}) => {
             checked={rememberMe}
             onChange={(e) => setRememberMe(e.target.checked)}
           />
-          <label htmlFor="rememberMe" style={styles.checkboxLabel}>
+          <label htmlFor="rememberMe" style={{
+            ...styles.checkboxLabel,
+            color: isDarkMode ? 'var(--text-color)' : '#333',
+          }}>
             Remember me
           </label>
         </div>
@@ -252,19 +275,25 @@ export const LoginForm = ({onLogin}) => {
             Forgot Password
           </button>
         </div>
-        <button type="submit" style={styles.submitButton}>
+        <button type="submit" className="login-submit-button" style={styles.submitButton}>
           {isSignUp ? "Sign Up" : "Login"}
         </button>
       </form>
       <div style={styles.toggleContainer}>
-        {isSignUp ? "Already have an account? " : "Don't have an account yet? "}
+        <span style={{ color: isDarkMode ? 'var(--text-color)' : '#333' }}>
+          {isSignUp ? "Already have an account? " : "Don't have an account yet? "}
+        </span>
         <button
           type="button"
           onClick={() => setIsSignUp(!isSignUp)}
-          style={styles.toggleButton}
+          style={{
+            ...styles.toggleButton,
+            color: isDarkMode ? '#4a90e2' : '#4a90e2',
+          }}
         >
           {isSignUp ? "Log In" : "Sign Up"}
         </button>
+      </div>
       </div>
     </div>
   );
